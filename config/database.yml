@@ -1,0 +1,8 @@
+development:
+  adapter: mysql
+  database: to_do_list_development
+  pool: 5
+  timeout: 5000
+  user: root
+  password: password
+

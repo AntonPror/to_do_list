@@ -1,0 +1,18 @@
+Categories
+<table border="1">
+<tr>
+  <th>Categories</th>
+  <th>Tasks count</th>
+</tr>
+  <% @categories.each do |category| %>
+    <tr id="category_<%= category.id%>">
+      <th><%=category.name%></th>
+      <th><%= category.tasks.size %></th>
+      <th><%= link_to "Update", edit_category_path(category) %></th>
+      <th><%= link_to "Delete", category_path(category), :method => :delete, :confirm => true, :remote => true %></th>
+    </tr>
+  <%end%>
+</table>
+<a href="/tasks">Tasks</a></th>
+<a href="/categories/new">Add new category</a></th>
+

@@ -1,0 +1,8 @@
+<%= form_for @task do |f| %>
+  <%= f.error_messages %>
+  <%= f.text_field :name %>
+  <%= f.text_area :description %>
+  <%= f.select :category_id, Category.all.map{|c| [c.name, c.id]} %>
+  <%= f.submit "Save" %>
+<% end %>
+
