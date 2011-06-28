@@ -1,4 +1,18 @@
 ToDoList::Application.routes.draw do
+  resources :users
+
+  resource :session, :only => [:new, :create, :destroy]
+
+  match 'signup' => 'users#new', :as => :signup
+
+  match 'register' => 'users#create', :as => :register
+
+  match 'login' => 'sessions#new', :as => :login
+
+  match 'logout' => 'sessions#destroy', :as => :logout
+
+  match '/activate/:activation_code' => 'users#activate', :as => :activate, :activation_code => nil
+
 #  match 'tasks' => 'tasks#index'
 #  match 'show' => 'tasks#show'
 #  match 'new' => 'tasks#new'
@@ -56,7 +70,7 @@ ToDoList::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "sessions#new"
 
   # See how all your routes lay out with "rake routes"
 

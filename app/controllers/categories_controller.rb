@@ -1,6 +1,10 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all
+    if logged_in?
+      @categories = current_user.categories
+    else
+      raise "First log in"
+    end
   end
 
   def new
@@ -38,6 +42,10 @@ class CategoriesController < ApplicationController
       format.html {redirect_to :action => :index}
       format.js {render :action => :destroy}
     end
+  end
+
+  def show
+    @tasks = Category.find(params[:id]).tasks
   end
 end
 

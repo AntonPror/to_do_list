@@ -7,8 +7,10 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
+<%= render :partial => "users/user_bar" %>
+<%= session[:user_id] %>
 <%= yield %>
 
 </body>
 </html>
+

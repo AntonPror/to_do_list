@@ -1,6 +1,7 @@
 <%= form_for @category do |f| %>
   <%= f.error_messages %>
   <%= f.text_field :name %>
+  <%#= f.select :user_id, User.all.map{|c| [c.login, c.id]} %>
   <%= f.submit "Save" %>
 <% end %>
 

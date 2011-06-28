@@ -1,0 +1,14 @@
+Tasks by category
+<table border="1">
+<tr>
+  <th>Task name</th> <th>Task description</th> <th>Task category</th>
+</tr>
+<% @tasks.each do |task| %>
+  <tr>
+    <th><%=task.name%></th>
+    <th><%=task.description%></th>
+    <th><%=task.category.name%></th>
+  </tr>
+  <% end %>
+</table>
+

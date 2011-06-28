@@ -1,6 +1,10 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.all
+    if logged_in?
+      @tasks = current_user.tasks
+    else
+      raise "First log in"
+    end
   end
 
   def show
@@ -20,7 +24,7 @@ class TasksController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     Task.delete(params[:id])
     redirect_to :action => :index
   end

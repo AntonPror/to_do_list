@@ -1,14 +1,15 @@
 Tasks
 <table border="1">
+<tr>
+  <th>Task name</th>
+</tr>
  <% @tasks.each do |task| %>
     <tr>
       <th>
         <a href="<%=task_path(task)%>">rest <%=task.name%></a>
-        <a href = "/show?id=<%=task.id%>" ><%= task.name %> <a/>
       </th>
-      <th><a href = "/delete?id=<%=task.id%>">Delete</a></th>
+      <th><%= link_to "Delete", task_path(task), :method => :delete %></th>
       <th>
-        <a href = "/edit?id=<%=task.id%>">Update</a>
         <%= link_to "Update", edit_task_path(task) %>
       </th>
     </tr>

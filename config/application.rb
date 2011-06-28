@@ -13,6 +13,7 @@ module ToDoList
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
+    config.autoload_paths << "#{Rails.root}/lib"
     # config.autoload_paths += %W(#{config.root}/extras)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
@@ -40,3 +41,4 @@ module ToDoList
     config.filter_parameters += [:password]
   end
 end
+
